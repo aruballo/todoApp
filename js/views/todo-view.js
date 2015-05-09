@@ -24,11 +24,11 @@ var app = app || {};
 			'keydown .edit': 'revertOnEscape',
 			'blur .edit': 'close',
 			'click .edit-btn': 'edit',
-			'click .priority-btn': 'prioritize'
+			'click .priority-btn': 'togglePriority'
 		},
 		
-		prioritize: function(){
-			this.model.prioritize();
+		togglePriority: function(){
+			this.model.togglePriority();
 		},
 		
 		// The TodoView listens for changes to its model, re-rendering. Since

@@ -24,8 +24,8 @@ var app = app || {};
 			});
 		},
 		
-		//Save priority
-		prioritize: function(){
+		//Save and toggle priority
+		togglePriority: function(){
 			this.save({
 				priority: !this.get('priority')
 			});	
