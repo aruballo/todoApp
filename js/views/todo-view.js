@@ -23,9 +23,14 @@ var app = app || {};
 			'keypress .edit': 'updateOnEnter',
 			'keydown .edit': 'revertOnEscape',
 			'blur .edit': 'close',
-			'click .edit-btn': 'edit'
+			'click .edit-btn': 'edit',
+			'click .priority-btn': 'prioritize'
 		},
-
+		
+		prioritize: function(){
+			this.model.prioritize();
+		},
+		
 		// The TodoView listens for changes to its model, re-rendering. Since
 		// there's a one-to-one correspondence between a **Todo** and a
 		// **TodoView** in this app, we set a direct reference on the model for
@@ -51,6 +56,7 @@ var app = app || {};
 
 			this.$el.html(this.template(this.model.toJSON()));
 			this.$el.toggleClass('completed', this.model.get('completed'));
+			this.$el.toggleClass("priority", this.model.get('priority'));
 			this.toggleVisible();
 			this.$input = this.$('.edit');
 			return this;
